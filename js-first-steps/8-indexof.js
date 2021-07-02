@@ -26,6 +26,7 @@ console.log('Loops');
         if (codDestino >= 0) {
             if (podeComprar) {
                 destinosDisponiveis.splice(codDestino, 1);
+                comprador.temPassagem =  true;
 
                 mensagem = (comprador.temPassagem)
                     ? 'Passagem já adquirida. Aproveite sua viagem!'
