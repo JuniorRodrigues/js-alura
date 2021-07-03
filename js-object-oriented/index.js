@@ -13,15 +13,17 @@ console.log(cliente1);
 console.log(cliente2);
 
 const account1 = new CheckingAccount();
-account1.branch = '001';
+account1.branch = 104;
 account1.costumer = cliente1;
 
 const account2 = new CheckingAccount();
-account2.branch = '102';
+account2.branch = 102;
 account2.costumer = cliente2;
 
 account1.deposit(200);
-account1.deposit(100);
-account1.withdraw(200);
+account1.withdraw(100);
+
+account1.transfer(account2, 100);
 
 console.log(account1);
+console.log(account2);

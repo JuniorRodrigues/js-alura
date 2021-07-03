@@ -3,9 +3,9 @@ function displayBankStatement (operationName) {
     args.shift();
     const messages      = args.join('\n');
 
-    console.log(`-- ${operationName} --`);
+    console.log(`-- Operation: ${operationName} --`);
     console.log(messages);
-    console.log('------\n');
+    console.log('------------------------\n');
 }
 
 export class CheckingAccount {
@@ -27,9 +27,11 @@ export class CheckingAccount {
             `Saque ${amount}`,
             `Saldo atual ${this._balance}`
         );
+
+        return amount;
     };
 
-    deposit(amount) {
+    deposit (amount) {
         if (amount <= 0) return;
 
         const previousBalance = this._balance;
@@ -41,5 +43,12 @@ export class CheckingAccount {
             `Depósito ${amount}`,
             `Saldo atual ${this._balance}`
         );
+
+        return amount;
+    };
+
+    transfer (account, amount) {
+        const withdrawAmount = this.withdraw(amount);
+        account.deposit(withdrawAmount);
     }
 };
