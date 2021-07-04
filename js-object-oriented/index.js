@@ -1,29 +1,26 @@
-import { CheckingAccount } from './CheckingAccount.js';
-import { Customer } from './Customer.js';
+import { Cliente } from './Cliente.js';
+import { ContaCorrente } from './ContaCorrente.js';
 
-const cliente1 = new Customer();
-cliente1.name = 'Ricardo';
+const cliente1 = new Cliente();
+cliente1.nome = 'Ricardo';
 cliente1.cpf = '111.222.333-45';
 
-const cliente2 = new Customer();
-cliente2.name = 'Alice';
+const cliente2 = new Cliente();
+cliente2.nome = 'Alice';
 cliente2.cpf = '222.333.444-56';
 
-console.log(cliente1);
-console.log(cliente2);
+const conta1 = new ContaCorrente();
+conta1.agencia = 104;
+conta1.cliente = cliente1;
 
-const account1 = new CheckingAccount();
-account1.branch = 104;
-account1.costumer = cliente1;
+const conta2 = new ContaCorrente();
+conta2.agencia = 102;
+conta2.cliente = cliente2;
 
-const account2 = new CheckingAccount();
-account2.branch = 102;
-account2.costumer = cliente2;
+conta1.deposito(200);
+conta1.saque(100);
 
-account1.deposit(200);
-account1.withdraw(100);
+conta1.transferencia(conta2, 100);
 
-account1.transfer(account2, 100);
-
-console.log(account1);
-console.log(account2);
+console.log(conta1);
+console.log(conta2);
