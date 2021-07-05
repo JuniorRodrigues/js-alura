@@ -2,16 +2,21 @@ import { Cliente } from "./Cliente.js";
 
 export class ContaCorrente {
     agencia;
+    static numeroDeContas = 0;
     // Nova convenção para valores realmente privados (Declaração: #saldo = 0; Acesso: this.#saldo;
     _cliente;
     _saldo = 0;
 
-    set cliente (novoCliente) {
-        if (novoCliente instanceof Cliente) {
-            this._cliente = novoCliente;
-        }
+    constructor (agencia, cliente) {
+        this.agencia = agencia;
+        this.cliente = cliente;
+        ContaCorrente.numeroDeContas++;
+    }
 
-        // console.log(novoCliente instanceof Cliente)
+    set cliente (novoCliente) {
+        if (!(novoCliente instanceof Cliente)) return;
+
+        this._cliente = novoCliente;
     }
 
     get cliente () {
