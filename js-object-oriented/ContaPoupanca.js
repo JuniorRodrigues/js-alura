@@ -1,13 +1,10 @@
 import { Cliente } from "./Cliente.js";
 
-export class ContaCorrente {
-    static numeroDeContas = 0;
-
-    constructor (agencia, cliente) {
-        this.agencia = agencia;
-        this.cliente = cliente;
-        this._saldo  = 0;
-        ContaCorrente.numeroDeContas++;
+export class ContaPoupanca {
+    constructor (agencia, cliente, saldoInicial) {
+        this._agencia = agencia;
+        this._cliente = cliente;
+        this._saldo = saldoInicial;
     }
 
     set cliente (novoCliente) {
