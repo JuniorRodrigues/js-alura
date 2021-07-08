@@ -3,8 +3,8 @@ import { Conta } from "./Conta.js";
 export class ContaCorrente extends Conta {
     static numeroDeContas = 0;
 
-    constructor (agencia, cliente, saldoInicial) {
-        super(agencia, cliente, saldoInicial);
+    constructor (agencia, cliente) {
+        super(agencia, cliente, 0);
         ContaCorrente.numeroDeContas++;
     }
 
